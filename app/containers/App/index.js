@@ -8,21 +8,28 @@
  */
 
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
+import ComparePage from 'containers/ComparePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+
+import { MenuSection } from 'components/MenuSection';
 
 import GlobalStyle from '../../global-styles';
 
 export default function App() {
   return (
-    <div>
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
-      <GlobalStyle />
-    </div>
+    <BrowserRouter>
+      <MenuSection />
+      <div className="App">
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/compare" component={ComparePage} />
+          <Route path="/" component={NotFoundPage} />
+        </Switch>
+        <GlobalStyle />
+      </div>
+    </BrowserRouter>
   );
 }

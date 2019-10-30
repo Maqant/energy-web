@@ -65,7 +65,9 @@
   },
   "dependencies": {
     "@babel/polyfill": "7.4.3",
+    "@progress/kendo-react-excel-export": "^3.6.0",
     "chalk": "^2.4.2",
+    "chartjs-plugin-annotation": "^0.5.7",
     "compression": "1.7.4",
     "connected-react-router": "6.4.0",
     "cross-env": "5.2.0",
@@ -81,7 +83,11 @@
     "minimist": "1.2.0",
     "prop-types": "15.7.2",
     "react": "16.8.6",
+    "react-chartjs-2": "^2.8.0",
+    "react-charty": "^0.1.4",
     "react-dom": "16.8.6",
+    "react-excel-renderer": "^1.1.0",
+    "react-export-excel": "^0.5.3",
     "react-helmet": "6.0.0-beta",
     "react-intl": "2.8.0",
     "react-redux": "7.0.2",
@@ -90,7 +96,10 @@
     "redux-saga": "1.0.2",
     "reselect": "4.0.0",
     "sanitize.css": "8.0.0",
-    "styled-components": "4.2.0"
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.1",
+    "styled-components": "4.2.0",
+    "xlsx": "^0.15.1"
   },
   "devDependencies": {
     "@babel/cli": "7.4.3",
