@@ -13,7 +13,6 @@ export class MenuSection extends Component {
     return (
       <Menu inverted widths={6}>
         <Menu.Item
-          as="div"
           name="home"
           active={activeItem === 'home'}
           onClick={this.handleItemClick}
