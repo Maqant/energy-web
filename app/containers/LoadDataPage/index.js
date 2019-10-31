@@ -35,10 +35,11 @@ export function LoadDataPage({ handleLoad, isPending }) {
 
       <Button
         loading={isPending}
-        content="Veri Yükle"
+        content="Tüketim Verisi Yükle"
         labelPosition="left"
         icon="file"
         onClick={() => fileInputRef.current.click()}
+        style={{ marginTop: '8px' }}
       />
       <input ref={fileInputRef} type="file" hidden onChange={handleLoad} />
     </div>

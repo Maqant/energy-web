@@ -22,14 +22,14 @@ function PredictionList({ predictions, onItemSelected }) {
         <Grid.Row>
           <List divided selection verticalAlign="middle">
             {predictions.map(prediction => (
-              <List.Item
-                onClick={onItemSelected}
-                id={prediction.id}
-                key={prediction.id}
-              >
-                İstek tarihi: {prediction.requestDateTime}, Başlangıç tarihi:{' '}
-                {prediction.dateTimeStart}, Bitiş tarihi:
-                {prediction.dateTimeEnd}
+              <List.Item onClick={onItemSelected} key={prediction.id}>
+                <List.Content>
+                  <List.Header id={prediction.id}>
+                    İstek tarihi: {prediction.requestDateTime}, Başlangıç
+                    tarihi: {prediction.dateTimeStart}, Bitiş tarihi:
+                    {prediction.dateTimeEnd}
+                  </List.Header>
+                </List.Content>
               </List.Item>
             ))}
           </List>

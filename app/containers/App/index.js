@@ -10,7 +10,7 @@
 import React from 'react';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
+import HomePage from 'containers/HomePage/';
 import ComparePage from 'containers/ComparePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 

@@ -95,7 +95,7 @@ export function HomePage({
       {/*
       <FormattedMessage {...messages.header} /> */}
 
-      <div className="Home">
+      <Grid container>
         <Grid centered>
           <Grid.Row centered>
             <Grid.Column width={16}>
@@ -179,53 +179,48 @@ export function HomePage({
             </Grid.Column>
           </Grid.Row>
 
-          <Grid centered>
-            <Grid.Row columns={2}>
-              <Dimmer active={isPending}>
-                <Loader />
-              </Dimmer>
+          <Grid.Row columns={2}>
+            <Dimmer active={isPending}>
+              <Loader />
+            </Dimmer>
 
-              <Grid.Column>
-                {estimationRequests && (
-                  <PredictionList
-                    onItemSelected={handleEstimateChange}
-                    predictions={estimationRequests}
-                  />
-                )}
-              </Grid.Column>
-              <Grid.Column>
-                {values && (
-                  <Table celled>
-                    <Table.Header>
-                      <Table.Row>
-                        {['Day', 'Time', 'Consumption', 'Estimation'].map(
-                          item => (
-                            <Table.HeaderCell key={item}>
-                              {item}
-                            </Table.HeaderCell>
-                          ),
-                        )}
+            <Grid.Column width={8}>
+              {estimationRequests && (
+                <PredictionList
+                  onItemSelected={handleEstimateChange}
+                  predictions={estimationRequests}
+                />
+              )}
+            </Grid.Column>
+            <Grid.Column width={8}>
+              {values && (
+                <Table celled>
+                  <Table.Header>
+                    <Table.Row>
+                      {['Gün', 'Saat', 'Gerçek Tüketim', 'Tahmini Tüketim'].map(
+                        item => (
+                          <Table.HeaderCell key={item}>{item}</Table.HeaderCell>
+                        ),
+                      )}
+                    </Table.Row>
+                  </Table.Header>
+
+                  <Table.Body>
+                    {values.map(value => (
+                      <Table.Row key={value.estimation}>
+                        <Table.Cell>{value.day}</Table.Cell>
+                        <Table.Cell>{value.time}</Table.Cell>
+                        <Table.Cell>{value.consumption || '-'}</Table.Cell>
+                        <Table.Cell>{value.estimation}</Table.Cell>
                       </Table.Row>
-                    </Table.Header>
-
-                    <Table.Body>
-                      {values.map(value => (
-                        <Table.Row key={value.estimation}>
-                          <Table.Cell>{value.day}</Table.Cell>
-                          <Table.Cell>{value.time}</Table.Cell>
-                          <Table.Cell>{value.consumption || '-'}</Table.Cell>
-                          <Table.Cell>{value.estimation}</Table.Cell>
-                        </Table.Row>
-                      ))}
-                    </Table.Body>
-                  </Table>
-                )}
-              </Grid.Column>
-            </Grid.Row>
-            <Grid.Row />
-          </Grid>
+                    ))}
+                  </Table.Body>
+                </Table>
+              )}
+            </Grid.Column>
+          </Grid.Row>
         </Grid>
-      </div>
+      </Grid>
     </div>
   );
 }

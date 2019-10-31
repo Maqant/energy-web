@@ -1,33 +1,32 @@
-import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu } from 'semantic-ui-react';
 
-export class MenuSection extends Component {
-  state = { activeItem: 'home' };
+export function MenuSection() {
+  const handleItemClick = (e, { name }) => setActiveItem(name);
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  const [activeItem, setActiveItem] = useState();
 
-  render() {
-    const { activeItem } = this.state;
-
-    return (
-      <Menu inverted widths={6}>
-        <Menu.Item
-          name="home"
-          active={activeItem === 'home'}
-          onClick={this.handleItemClick}
-        >
-          <Link to="/">Home</Link>
-        </Menu.Item>
-        <Menu.Item
-          as="div"
-          name="compare"
-          active={activeItem === 'compare'}
-          onClick={this.handleItemClick}
-        >
-          <NavLink to="/compare">Compare</NavLink>
-        </Menu.Item>
-      </Menu>
-    );
-  }
+  return (
+    <Menu inverted widths={6}>
+      <Menu.Item
+        as={Link}
+        to="/"
+        name="home"
+        active={activeItem === 'home'}
+        onClick={handleItemClick}
+      >
+        Home
+      </Menu.Item>
+      <Menu.Item
+        as={Link}
+        to="/compare"
+        name="compare"
+        active={activeItem === 'compare'}
+        onClick={handleItemClick}
+      >
+        Compare
+      </Menu.Item>
+    </Menu>
+  );
 }
