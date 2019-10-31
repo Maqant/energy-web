@@ -43,6 +43,18 @@ const makeSelectHandleModelChange = () =>
     substate => substate.currentModel,
   );
 
+const makeSelectIsPending = () =>
+  createSelector(
+    selectHomePageDomain,
+    substate => substate.isPending,
+  );
+
+const makeSelectValidDates = () =>
+  createSelector(
+    selectHomePageDomain,
+    substate => substate.validDates,
+  );
+
 /* const makeSelectHandleModelChangeDefault = () =>
   createSelector(
     makeSelectHandleModelChange(),
@@ -53,6 +65,12 @@ const makeSelectHandleModelChange = () =>
     },
   ); */
 
+const makeSelectEstimationRequest = () =>
+  createSelector(
+    selectHomePageDomain,
+    substate => substate.estimationRequests,
+  );
+
 export default makeSelectHomePage;
 export {
   selectHomePageDomain,
@@ -61,4 +79,7 @@ export {
   makeSelectValues,
   makeSelectTrainedModels,
   makeSelectHandleModelChange,
+  makeSelectEstimationRequest,
+  makeSelectIsPending,
+  makeSelectValidDates,
 };
